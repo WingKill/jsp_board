@@ -87,7 +87,7 @@ public class BDao {
 			
 			int rn = pstmt.executeUpdate();		
 			
-			System.out.println("insert 실행 결과 : " + rn);
+			System.out.println("board insert 실행 결과 : " + rn);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -117,7 +117,7 @@ public class BDao {
 			
 			int rn = pstmt.executeUpdate();		
 			
-			System.out.println("insert 실행 결과 : " + rn);
+			System.out.println("board update 실행 결과 : " + rn);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -144,7 +144,7 @@ public class BDao {
 			
 			int rn = pstmt.executeUpdate();		
 			
-			System.out.println("insert 실행 결과 : " + rn);
+			System.out.println("board delete 실행 결과 : " + rn);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -162,6 +162,7 @@ public class BDao {
 	public BDto contentView(int bID) {
 		BDto dto = new BDto();
 
+		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -201,7 +202,34 @@ public class BDao {
 		}
 		return dto;
 	}
-
+	
+	public void uphit(int bID) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		String sql = "update mvc_board set bhit = bhit +1 where bid = ?";
+		try {
+			conn = dataSource.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, bID);
+			
+			int rn = pstmt.executeUpdate();		
+			
+			System.out.println("hit update 실행 결과 : " + rn);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (conn != null)
+					conn.close();
+				if (pstmt != null)
+					pstmt.close();			
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+	}	
+	
 	public BDto replyView(String bidStr) {
 		
 		BDto dto = new BDto();
@@ -267,7 +295,7 @@ public class BDao {
 			
 			int rn = pstmt.executeUpdate();		
 			
-			System.out.println("insert 실행 결과 : " + rn);
+			System.out.println("reply insert 실행 결과 : " + rn);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -295,7 +323,7 @@ public class BDao {
 			
 			int rn = pstmt.executeUpdate();		
 			
-			System.out.println("insert 실행 결과 : " + rn);
+			System.out.println("reply bstep update 실행 결과 : " + rn);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

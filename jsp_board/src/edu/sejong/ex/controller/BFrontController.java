@@ -105,6 +105,10 @@ public class BFrontController extends HttpServlet {
 			command = new BReplyCommand();
 			command.execute(request, response);
 			viewPage = "/list.do";
+		}else if(com.equals("/tables.do")) {
+			command = new BListCommand();
+			command.execute(request, response);
+			viewPage = "board_tables.jsp";
 		}
 				
 		if(viewPage != null) {

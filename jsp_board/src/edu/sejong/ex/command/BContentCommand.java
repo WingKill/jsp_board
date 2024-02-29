@@ -13,6 +13,7 @@ public class BContentCommand implements BCommand {
 		int bid = Integer.parseInt(bIdStr);
 		BDao dao = new BDao();
 		
+		dao.uphit(bid);
 		BDto board = dao.contentView(bid);
 		request.setAttribute("content_view", board);
 	}

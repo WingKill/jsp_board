@@ -8,6 +8,7 @@
 </head>
 <body>
 <h1>홈페이지 링크</h1>
-<a href="list.do">자유 게시판</a>
+<a href="list.do">자유 게시판</a><br><br>
+<a href="life">생명주기 보기</a>
 </body>
 </html>

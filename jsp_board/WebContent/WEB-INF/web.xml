@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" 
+xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+	<!-- ServletInitExample servletInitExample = new ServletInitExample(); -->
+	<servlet>
+		<servlet-name>servletInitExample</servlet-name>
+		<servlet-class>edu.sejong.ex.controller.ServletInitExample</servlet-class>
+		<init-param>
+			<param-name>id</param-name>
+			<param-value>abcdef</param-value>
+		</init-param>
+		<init-param>
+			<param-name>pw</param-name>
+			<param-value>1234</param-value>
+		</init-param>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>servletInitExample</servlet-name>
+		<url-pattern>/initServlet</url-pattern>
+	</servlet-mapping>
+	
+	<context-param>
+		<param-name>kor</param-name>
+		<param-value>90</param-value>
+	</context-param>
+	
+	<context-param>
+		<param-name>eng</param-name>
+		<param-value>80</param-value>
+	</context-param>
+	
+	<context-param>
+		<param-name>math</param-name>
+		<param-value>70</param-value>
+	</context-param>
+	
+	<listener>
+		<listener-class>edu.sejong.ex.listener.ContextListenerExample</listener-class>
+	</listener>
+</web-app>
